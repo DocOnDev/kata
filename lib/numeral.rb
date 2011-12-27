@@ -1,20 +1,24 @@
-class Converter
-    NUMERALS = { 50 => "L", 40 => "XL", 10 => "X", 9 => "IX", 5 => "V", 4 => "IV", 1 => "I" }
-    def convert(number)
-        return NUMERALS[number] if NUMERALS[number]
-        to_roman(number) 
+class Numeral
+    attr_accessor :arabic
+    attr_accessor :roman
+    attr_accessor :pair
+
+    def initialize(*args)
+        if args[0] == args[0].to_i
+            @roman = args[1]
+            @arabic = args[0]
+        else
+            @roman = args[0]
+            @arabic = args[1]
+        end
     end
 
-    private
+    def pair_numeral
+        return Numeral.new(@arabic - @pair.arabic, @pair.roman + roman) if @pair
+        nil
+    end
 
-    def to_roman(number)
-        result = ""
-        NUMERALS.each do |value, numeral|
-            while number >= value
-                result += numeral
-                number -= value
-            end 
-        end
-        result
+    def ==(compare_to)
+        return @arabic = compare_to.arabic && @roman == compare_to.roman
     end
 end
