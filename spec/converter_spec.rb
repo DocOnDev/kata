@@ -28,7 +28,7 @@ describe "Converter" do
                 numeral.convert(17).should == "XVII"
             end
         end
-        describe "Manage Subtractions", :subtraction => true do
+        describe "Manage Subtractions" do
             it "should convert number 4 to numeral IV" do
                 numeral.convert(4).should == "IV"
             end

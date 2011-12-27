@@ -34,4 +34,12 @@ describe "Numeral" do
             ten.pair_numeral.arabic.should == 9
         end
     end
+    describe "equality" do
+        it "considers any numeral with same properties to be equal" do
+            five.should == Numeral.new("V", 5)
+        end
+        it "considers any numeral with differing properties to be inequal" do
+            five.should_not == Numeral.new(5, "Y")
+        end
+    end
 end
