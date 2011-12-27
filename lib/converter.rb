@@ -5,12 +5,12 @@ class Converter
 
     def initialize
         @result = ""
-        NUMERALS[5].pair = NUMERALS[1]
-        NUMERALS[10].pair = NUMERALS[1]
-        NUMERALS[50].pair = NUMERALS[10]
-        NUMERALS[100].pair = NUMERALS[10]
-        NUMERALS[500].pair = NUMERALS[100]
-        NUMERALS[1000].pair = NUMERALS[100]
+        NUMERALS[5].subtrahend = NUMERALS[1]
+        NUMERALS[10].subtrahend = NUMERALS[1]
+        NUMERALS[50].subtrahend = NUMERALS[10]
+        NUMERALS[100].subtrahend = NUMERALS[10]
+        NUMERALS[500].subtrahend = NUMERALS[100]
+        NUMERALS[1000].subtrahend = NUMERALS[100]
     end
 
     def convert(number)
@@ -24,7 +24,7 @@ class Converter
     def to_roman(number)
         NUMERALS.each do |value, numeral|
             number = roman_reduce(number, numeral)
-            number = roman_reduce(number, numeral.pair_numeral) if numeral.pair_numeral
+            number = roman_reduce(number, numeral.difference) if numeral.difference
         end
     end
 

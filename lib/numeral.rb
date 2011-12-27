@@ -1,7 +1,7 @@
 class Numeral
     attr_accessor :arabic
     attr_accessor :roman
-    attr_accessor :pair
+    attr_accessor :subtrahend
 
     def initialize(*args)
         if args[0] == args[0].to_i
@@ -13,8 +13,8 @@ class Numeral
         end
     end
 
-    def pair_numeral
-        return Numeral.new(@arabic - @pair.arabic, @pair.roman + roman) if @pair
+    def difference
+        return Numeral.new(@arabic - @subtrahend.arabic, @subtrahend.roman + roman) if @subtrahend
         nil
     end
 

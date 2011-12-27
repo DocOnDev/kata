@@ -16,22 +16,22 @@ describe "Numeral" do
             number.roman.should == "V"
         end
     end
-    describe "pair with" do
-        it "can pair with another numeral" do
-            five.pair = one
-            five.pair.should == one
+    describe "subtrahend with" do
+        it "can subtrahend with another numeral" do
+            five.subtrahend = one
+            five.subtrahend.should == one
         end
-        it "should subtract the pair" do
-            five.pair = one
-            five.pair_numeral.should == Numeral.new(4,"IV")
+        it "should subtract the subtrahend" do
+            five.subtrahend = one
+            five.difference.should == Numeral.new(4,"IV")
         end
-        it "should not be aware of any pairing rules" do
-            ten.pair = five
-            ten.pair_numeral.should == Numeral.new(5,"VX")
+        it "should not be aware of any subtrahending rules" do
+            ten.subtrahend = five
+            ten.difference.should == Numeral.new(5,"VX")
         end
-        it "should be able to see pair numeral details" do
-            ten.pair = one
-            ten.pair_numeral.arabic.should == 9
+        it "should be able to see subtrahend numeral details" do
+            ten.subtrahend = one
+            ten.difference.arabic.should == 9
         end
     end
     describe "equality" do
