@@ -15,5 +15,13 @@ describe Converter do
                 converter.to_roman(10).should == "X"
             end
         end
+        describe "Positive Ordinals" do
+            it "should convert arabic 3 to III" do
+                converter.to_roman(3).should == "III"
+            end
+            it "should convert arabic 2 to II" do
+                converter.to_roman(2).should == "II"
+            end
+        end
     end
 end
