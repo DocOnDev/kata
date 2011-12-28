@@ -26,5 +26,16 @@ describe Converter do
                 converter.to_roman(17).should == "XVII"
             end
         end
+        describe "Negative Ordinals" do
+            it "should convert arabic 4 to IV" do
+                converter.to_roman(4).should == "IV"
+            end
+            it "should convert arabic 19 to XIX" do
+                converter.to_roman(19).should == "XIX"
+            end
+            it "shold convert arabic 1989 to MCMLXXXIX" do
+                converter.to_roman(1989).should == "MCMLXXXIX"
+            end
+        end
     end
 end
