@@ -22,6 +22,9 @@ describe Converter do
             it "should convert arabic 2 to II" do
                 converter.to_roman(2).should == "II"
             end
+            it "should convert arabic 17 to XVII" do
+                converter.to_roman(17).should == "XVII"
+            end
         end
     end
 end
