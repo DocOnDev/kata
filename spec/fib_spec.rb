@@ -1,6 +1,11 @@
 
 class Fib
-    @@solved_positions = []
+    attr_accessor :solved_positions
+
+    def initialize
+        @solved_positions = []
+    end
+
     def [](place)
         return solved_positions[place] if solved_positions.fetch(place, false)
         return solved_positions[place] = calculate_it(place) if place >= 2
@@ -8,9 +13,6 @@ class Fib
     end
 
     private
-    def solved_positions
-        @@solved_positions
-    end
     def calculate_it(place)
         self[place-1] + self[place-2]
     end
@@ -43,6 +45,6 @@ describe Fib do
         fib[7].should == 13
     end
     it "is 1000 at 50" do
-        fib[50].should == 1000
+        fib[50].should == 12586269025
     end
 end
